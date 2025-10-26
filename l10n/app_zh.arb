@@ -1,0 +1,6 @@
+{
+  "@@locale": "zh",
+  "hello_world": "你好，世界！",
+  "login_btn": "登录",
+  "welcome_message": "欢迎"
+}
