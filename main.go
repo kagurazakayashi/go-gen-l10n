@@ -10,9 +10,9 @@ import (
 // main 為程式進入點，負責解析命令列參數並檢查指定目錄中的 ARB 語系檔案。
 func main() {
 	// dirPtr 為 l10n 目錄路徑參數，用於指定 ARB 檔案所在目錄。
-	dirPtr := flag.String("dir", "./l10n", "l10n 檔案夾路徑")
+	dirPtr := flag.String("dir", "./l10n", "l10n dir")
 	// pkgPtr 為產生之 Go 檔案的套件名稱參數。
-	pkgPtr := flag.String("pkg", "l10n", "產生的 Go 檔案套件名稱")
+	pkgPtr := flag.String("pkg", "l10n", "pkg name")
 	flag.Parse()
 
 	// 取得解析後的目錄路徑與套件名稱。
@@ -30,4 +30,6 @@ func main() {
 
 	// 輸出目前執行參數，便於除錯與確認輸入設定。
 	log.Printf("[main] dir=%s, pkg=%s", dir, pkgName)
+
+	loadFiles(files)
 }
