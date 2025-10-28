@@ -31,5 +31,11 @@ func main() {
 	// 輸出目前執行參數，便於除錯與確認輸入設定。
 	log.Printf("[main] dir=%s, pkg=%s", dir, pkgName)
 
-	loadFiles(files)
+	var locales []LocaleData
+	// 解析每一個 arb 檔案
+	for _, file := range files {
+		locales = append(locales, loadArbFile(file))
+	}
+
+	log.Printf("%v", locales)
 }
