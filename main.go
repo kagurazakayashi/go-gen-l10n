@@ -33,13 +33,21 @@ func main() {
 
 	var locales []LocaleData
 	var keys []KeyMeta
+	keySet := make(map[string]bool)
 	defaultLocale := ""
 
 	// 逐一解析每個 ARB 檔案，收集語系資料與對應的鍵值中繼資料。
 	for _, file := range files {
 		localeId, localeData, keysAdd := loadArbFile(file)
 		locales = append(locales, localeData)
-		keys = append(keys, keysAdd...)
+
+		// 使用全局 keySet 去重，避免相同鍵在多個 ARB 檔案間重複
+		for _, k := range keysAdd {
+			if !keySet[k.Key] {
+				keySet[k.Key] = true
+				keys = append(keys, k)
+			}
+		}
 
 		// 將第一個成功載入的語系列為預設語系，用於後續產生預設結構體名稱後綴。
 		if defaultLocale == "" {
