@@ -1,9 +1,83 @@
 {
   "@@locale": "en",
-  "hello_world": "Hello World!",
-  "@hello_world": {
-    "description": "The conventional newborn programmer greeting"
+  "cli_flag_dir": "l10n dir",
+  "@cli_flag_dir": {
+    "description": "CLI flag: directory containing ARB files"
   },
-  "login_btn": "Login",
-  "welcome_message": "Welcome"
+  "cli_flag_pkg": "package name",
+  "@cli_flag_pkg": {
+    "description": "CLI flag: output package name"
+  },
+  "error_find_arb_files": "Failed to find ARB files: %v",
+  "@error_find_arb_files": {
+    "description": "Error when searching for ARB files"
+  },
+  "error_no_arb_files": "No app_*.arb files found in directory %s",
+  "@error_no_arb_files": {
+    "description": "Error when no ARB files exist"
+  },
+  "info_execution_params": "Execution parameters: dir=%s, pkg=%s",
+  "@info_execution_params": {
+    "description": "Log execution parameters"
+  },
+  "info_template_data": "Template data: %+v",
+  "@info_template_data": {
+    "description": "Log template data content"
+  },
+  "error_read_arb_file": "Failed to read ARB file: path=%s, error=%v",
+  "@error_read_arb_file": {
+    "description": "Error reading ARB file"
+  },
+  "error_parse_arb_file": "Failed to parse ARB file: path=%s, error=%v",
+  "@error_parse_arb_file": {
+    "description": "Error parsing ARB file JSON"
+  },
+  "error_parse_base_template": "Failed to parse base template: %v",
+  "@error_parse_base_template": {
+    "description": "Error parsing base template"
+  },
+  "error_execute_base_template": "Failed to execute base template: %v",
+  "@error_execute_base_template": {
+    "description": "Error executing base template"
+  },
+  "error_format_base_code": "Failed to format base code: %v\nCode content:\n%s",
+  "@error_format_base_code": {
+    "description": "Error formatting generated base code"
+  },
+  "error_write_base_file": "Failed to write base file: %v",
+  "@error_write_base_file": {
+    "description": "Error writing base localization file"
+  },
+  "success_generated_code": "Generated localization code: %s\n",
+  "@success_generated_code": {
+    "description": "Successfully generated localization file"
+  },
+  "error_parse_locale_template": "Failed to parse locale template: %v",
+  "@error_parse_locale_template": {
+    "description": "Error parsing locale template"
+  },
+  "error_execute_locale_template": "Failed to execute locale template (%s): %v",
+  "@error_execute_locale_template": {
+    "description": "Error executing locale template"
+  },
+  "error_format_locale_code": "Failed to format locale code (%s): %v\nCode content:\n%s",
+  "@error_format_locale_code": {
+    "description": "Error formatting generated locale code"
+  },
+  "error_write_locale_file": "Failed to write locale file (%s): %v",
+  "@error_write_locale_file": {
+    "description": "Error writing locale localization file"
+  },
+  "comment_locale_implementation": "Locale implementation: %s",
+  "@comment_locale_implementation": {
+    "description": "Comment in generated code for locale implementation"
+  },
+  "comment_app_localizations_interface": "Defines the interface for all supported localized strings",
+  "@comment_app_localizations_interface": {
+    "description": "Comment for AppLocalizations interface"
+  },
+  "comment_get_localizations": "Returns the localization instance based on locale code",
+  "@comment_get_localizations": {
+    "description": "Comment for GetLocalizations function"
+  }
 }

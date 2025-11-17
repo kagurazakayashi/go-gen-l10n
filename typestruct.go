@@ -9,6 +9,7 @@ type TemplateData struct {
 	Keys                []KeyMeta    // 所有翻譯鍵（key）對應的方法資訊清單
 	Locales             []LocaleData // 多語系資料集合，每個元素代表一種語系
 	DefaultStructSuffix string       // 預設結構名稱後綴（例如：En、ZhTw），用於生成型別名稱
+	GeneratedLocale     string       // 生成程式碼時使用的程式語言
 }
 
 // KeyMeta 描述單一翻譯鍵（key）與其對應的方法名稱。

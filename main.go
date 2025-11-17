@@ -4,7 +4,10 @@ package main
 import (
 	"flag"
 	"log"
+	"os"
 	"path/filepath"
+
+	"github.com/kagurazakayashi/go-gen-l10n/l10n"
 )
 
 // main 為程式進入點，負責解析命令列參數、掃描指定目錄中的 ARB 語系檔案，並產生對應的 Go 程式碼。
@@ -13,23 +16,28 @@ func main() {
 	dirPtr := flag.String("dir", "./l10n", "l10n dir")
 	// pkgPtr 為輸出 Go 檔案所使用的套件名稱參數。
 	pkgPtr := flag.String("pkg", "l10n", "pkg name")
+	// langPtr 為程式自身輸出訊息所使用的語言。
+	langPtr := flag.String("lang", "en", "program output language")
 	flag.Parse()
 
-	// 取得命令列解析後的目錄路徑與套件名稱。
+	// 取得命令列解析後的目錄路徑、套件名稱與語言。
 	dir := *dirPtr
 	pkgName := *pkgPtr
+	lang := *langPtr
+
+	L := l10n.GetLocalizations(lang)
 
 	// 搜尋指定目錄下所有符合 app_*.arb 命名規則的檔案。
 	files, err := filepath.Glob(filepath.Join(dir, "app_*.arb"))
 	if err != nil {
-		log.Fatalf("[main] 查找 ARB 檔案失敗：%v", err)
+		log.Fatalf(L.ErrorFindArbFiles(), err)
 	}
 	if len(files) == 0 {
-		log.Fatalf("[main] 在目錄 %s 中找不到 app_*.arb 檔案", dir)
+		log.Fatalf(L.ErrorNoArbFiles(), dir)
 	}
 
 	// 輸出本次執行的主要參數，便於除錯與確認輸入設定是否正確。
-	log.Printf("[main] 執行參數：dir=%s, pkg=%s", dir, pkgName)
+	log.Printf(L.InfoExecutionParams(), dir, pkgName)
 
 	var locales []LocaleData
 	var keys []KeyMeta
@@ -38,7 +46,7 @@ func main() {
 
 	// 逐一解析每個 ARB 檔案，收集語系資料與對應的鍵值中繼資料。
 	for _, file := range files {
-		localeId, localeData, keysAdd := loadArbFile(file)
+		localeId, localeData, keysAdd := loadArbFile(file, L)
 		locales = append(locales, localeData)
 
 		// 使用全局 keySet 去重，避免相同鍵在多個 ARB 檔案間重複
@@ -57,15 +65,19 @@ func main() {
 
 	// 組合程式碼產生器所需的樣板資料。
 	tmplData := TemplateData{
-		PackageName:         pkgName,
-		Keys:                keys,
-		Locales:             locales,
-		DefaultStructSuffix: toCamelCase(defaultLocale),
+		PackageName:           pkgName,
+		Keys:                  keys,
+		Locales:               locales,
+		DefaultStructSuffix:   toCamelCase(defaultLocale),
+		GeneratedLocale:       lang,
 	}
 
 	// 輸出最終樣板資料，便於檢查產生器輸入內容。
-	log.Printf("[main] 樣板資料內容：%+v", tmplData)
+	log.Printf(L.InfoTemplateData(), tmplData)
 
 	// 依據整理後的樣板資料產生對應的 Go 程式碼。
-	generateGoCode(dir, pkgName, tmplData)
+	generateGoCode(dir, pkgName, tmplData, L)
+
+	// 成功結束程式，回傳 0 給作業系統。
+	os.Exit(0)
 }

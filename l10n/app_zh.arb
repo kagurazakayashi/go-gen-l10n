@@ -1,6 +1,83 @@
 {
   "@@locale": "zh",
-  "hello_world": "你好，世界！",
-  "login_btn": "登录",
-  "welcome_message": "欢迎"
+  "cli_flag_dir": "l10n 目录",
+  "@cli_flag_dir": {
+    "description": "CLI 参数：ARB 文件所在目录"
+  },
+  "cli_flag_pkg": "包名",
+  "@cli_flag_pkg": {
+    "description": "CLI 参数：输出的 Go 包名称"
+  },
+  "error_find_arb_files": "查找 ARB 文件失败：%v",
+  "@error_find_arb_files": {
+    "description": "搜索 ARB 文件时的错误"
+  },
+  "error_no_arb_files": "在目录 %s 中找不到 app_*.arb 文件",
+  "@error_no_arb_files": {
+    "description": "未找到任何 ARB 文件时的错误"
+  },
+  "info_execution_params": "执行参数：dir=%s, pkg=%s",
+  "@info_execution_params": {
+    "description": "日志：执行参数信息"
+  },
+  "info_template_data": "模板数据内容：%+v",
+  "@info_template_data": {
+    "description": "日志：模板数据内容"
+  },
+  "error_read_arb_file": "读取 ARB 文件失败，文件路径=%s，错误=%v",
+  "@error_read_arb_file": {
+    "description": "读取 ARB 文件时的错误"
+  },
+  "error_parse_arb_file": "解析 ARB 文件失败，文件路径=%s，错误=%v",
+  "@error_parse_arb_file": {
+    "description": "解析 ARB 文件 JSON 时的错误"
+  },
+  "error_parse_base_template": "解析基础模板失败：%v",
+  "@error_parse_base_template": {
+    "description": "解析基础代码模板时的错误"
+  },
+  "error_execute_base_template": "执行基础模板失败：%v",
+  "@error_execute_base_template": {
+    "description": "执行基础代码模板时的错误"
+  },
+  "error_format_base_code": "格式化基础代码失败：%v\\n代码内容：\\n%s",
+  "@error_format_base_code": {
+    "description": "格式化生成的基础代码时的错误"
+  },
+  "error_write_base_file": "写入基础文件失败：%v",
+  "@error_write_base_file": {
+    "description": "写入基础本地化文件时的错误"
+  },
+  "success_generated_code": "成功生成本地化代码：%s\n",
+  "@success_generated_code": {
+    "description": "成功生成多语言文件"
+  },
+  "error_parse_locale_template": "解析语言模板失败：%v",
+  "@error_parse_locale_template": {
+    "description": "解析语言代码模板时的错误"
+  },
+  "error_execute_locale_template": "执行语言模板失败（%s）：%v",
+  "@error_execute_locale_template": {
+    "description": "执行语言代码模板时的错误"
+  },
+  "error_format_locale_code": "格式化语言代码失败（%s）：%v\\n代码内容：\\n%s",
+  "@error_format_locale_code": {
+    "description": "格式化生成的语言代码时的错误"
+  },
+  "error_write_locale_file": "写入语言文件失败（%s）：%v",
+  "@error_write_locale_file": {
+    "description": "写入语言本地化文件时的错误"
+  },
+  "comment_locale_implementation": "语言实现：%s",
+  "@comment_locale_implementation": {
+    "description": "生成代码中的语言实现注释"
+  },
+  "comment_app_localizations_interface": "定义了所有多语言字符串接口",
+  "@comment_app_localizations_interface": {
+    "description": "AppLocalizations 接口的注释"
+  },
+  "comment_get_localizations": "根据语言代码获取对应的本地化实例",
+  "@comment_get_localizations": {
+    "description": "GetLocalizations 函数的注释"
+  }
 }

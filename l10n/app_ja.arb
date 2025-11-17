@@ -1,0 +1,83 @@
+{
+  "@@locale": "ja",
+  "cli_flag_dir": "l10n ディレクトリ",
+  "@cli_flag_dir": {
+    "description": "CLI フラグ：ARB ファイルを含むディレクトリ"
+  },
+  "cli_flag_pkg": "パッケージ名",
+  "@cli_flag_pkg": {
+    "description": "CLI フラグ：出力パッケージ名"
+  },
+  "error_find_arb_files": "ARB ファイルの検索に失敗しました：%v",
+  "@error_find_arb_files": {
+    "description": "ARB ファイルを検索する際のエラー"
+  },
+  "error_no_arb_files": "ディレクトリ %s に app_*.arb ファイルが見つかりません",
+  "@error_no_arb_files": {
+    "description": "ARB ファイルが存在しない場合のエラー"
+  },
+  "info_execution_params": "実行パラメータ：dir=%s, pkg=%s",
+  "@info_execution_params": {
+    "description": "ログ：実行パラメータ情報"
+  },
+  "info_template_data": "テンプレートデータ内容：%+v",
+  "@info_template_data": {
+    "description": "ログ：テンプレートデータ内容"
+  },
+  "error_read_arb_file": "ARB ファイルの読み込みに失敗しました：パス=%s, エラー=%v",
+  "@error_read_arb_file": {
+    "description": "ARB ファイルを読み込む際のエラー"
+  },
+  "error_parse_arb_file": "ARB ファイルの解析に失敗しました：パス=%s, エラー=%v",
+  "@error_parse_arb_file": {
+    "description": "ARB ファイルの JSON を解析する際のエラー"
+  },
+  "error_parse_base_template": "基本テンプレートの解析に失敗しました：%v",
+  "@error_parse_base_template": {
+    "description": "基本コードテンプレートを解析する際のエラー"
+  },
+  "error_execute_base_template": "基本テンプレートの実行に失敗しました：%v",
+  "@error_execute_base_template": {
+    "description": "基本コードテンプレートを実行する際のエラー"
+  },
+  "error_format_base_code": "基本コードのフォーマットに失敗しました：%v\\nコード内容：\\n%s",
+  "@error_format_base_code": {
+    "description": "生成された基本コードをフォーマットする際のエラー"
+  },
+  "error_write_base_file": "基本ファイルの書き込みに失敗しました：%v",
+  "@error_write_base_file": {
+    "description": "基本ローカライゼーションファイルを書き込む際のエラー"
+  },
+  "success_generated_code": "ローカライゼーションコードを生成しました：%s\n",
+  "@success_generated_code": {
+    "description": "多言語ファイルの生成に成功"
+  },
+  "error_parse_locale_template": "言語テンプレートの解析に失敗しました：%v",
+  "@error_parse_locale_template": {
+    "description": "言語コードテンプレートを解析する際のエラー"
+  },
+  "error_execute_locale_template": "言語テンプレートの実行に失敗しました（%s）：%v",
+  "@error_execute_locale_template": {
+    "description": "言語コードテンプレートを実行する際のエラー"
+  },
+  "error_format_locale_code": "言語コードのフォーマットに失敗しました（%s）：%v\\nコード内容：\\n%s",
+  "@error_format_locale_code": {
+    "description": "生成された言語コードをフォーマットする際のエラー"
+  },
+  "error_write_locale_file": "言語ファイルの書き込みに失敗しました（%s）：%v",
+  "@error_write_locale_file": {
+    "description": "言語ローカライゼーションファイルを書き込む際のエラー"
+  },
+  "comment_locale_implementation": "言語実装：%s",
+  "@comment_locale_implementation": {
+    "description": "生成コード内の言語実装コメント"
+  },
+  "comment_app_localizations_interface": "サポートされるすべてのローカライズされた文字列のインターフェースを定義します",
+  "@comment_app_localizations_interface": {
+    "description": "AppLocalizations インターフェースのコメント"
+  },
+  "comment_get_localizations": "言語コードに基づいてローカライゼーションインスタンスを取得します",
+  "@comment_get_localizations": {
+    "description": "GetLocalizations 関数のコメント"
+  }
+}

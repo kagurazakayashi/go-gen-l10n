@@ -9,10 +9,12 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
+
+	"github.com/kagurazakayashi/go-gen-l10n/l10n"
 )
 
 // loadArbFile 讀取指定的 ARB 檔案，解析語系識別碼、翻譯內容與鍵值中繼資料。
-func loadArbFile(file string) (string, LocaleData, []KeyMeta) {
+func loadArbFile(file string, L l10n.AppLocalizations) (string, LocaleData, []KeyMeta) {
 	// 取得檔案名稱（不含路徑），例如：app_zh_TW.arb。
 	baseName := filepath.Base(file)
 
@@ -23,27 +25,27 @@ func loadArbFile(file string) (string, LocaleData, []KeyMeta) {
 	// 讀取目前 ARB 檔案內容。
 	content, err := os.ReadFile(file)
 	if err != nil {
-		log.Fatalf("[I18nLoader] 讀取 ARB 檔案失敗，檔案路徑=%s，錯誤=%v", file, err)
+		log.Fatalf(L.ErrorReadArbFile(), file, err)
 	}
 
-	// 將 JSON 內容反序列化為通用 map，供後續欄位解析使用。
+	// 將 JSON 內容反序列化爲通用 map，供後續欄位解析使用。
 	var rawMap map[string]interface{}
 	if err := json.Unmarshal(content, &rawMap); err != nil {
-		log.Fatalf("[I18nLoader] 解析 ARB 檔案失敗，檔案路徑=%s，錯誤=%v", file, err)
+		log.Fatalf(L.ErrorParseArbFile(), file, err)
 	}
 
-	// 將原始 ARB 資料轉換為鍵值中繼資料與語系資料。
+	// 將原始 ARB 資料轉換爲鍵值中繼資料與語系資料。
 	keys, localeData := arbMap(localeId, rawMap)
 	return localeId, localeData, keys
 }
 
-// arbMap 將 ARB 原始資料轉換為鍵值清單與語系資料結構。
+// arbMap 將 ARB 原始資料轉換爲鍵值清單與語系資料結構。
 func arbMap(localeId string, rawMap map[string]interface{}) ([]KeyMeta, LocaleData) {
 	// keySet 用於避免重複加入相同的翻譯鍵。
 	keySet := make(map[string]bool)
 	var keys []KeyMeta
 
-	// translations 儲存實際可用的翻譯內容，值會先轉為帶引號的字串格式。
+	// translations 儲存實際可用的翻譯內容，值會先轉爲帶引號的字串格式。
 	translations := make(map[string]string)
 	for k, v := range rawMap {
 		// 略過 ARB 中以 @ 開頭的中繼資料欄位。
@@ -75,19 +77,19 @@ func arbMap(localeId string, rawMap map[string]interface{}) ([]KeyMeta, LocaleDa
 	return keys, localeData
 }
 
-// toCamelCase 將底線或連字號分隔的字串轉為首字母大寫的 CamelCase 格式。
+// toCamelCase 將底線或連字號分隔的字串轉爲首字母大寫的 CamelCase 格式。
 func toCamelCase(s string) string {
 	// 依底線或連字號切分字串片段。
 	parts := regexp.MustCompile(`[_\-]+`).Split(s, -1)
 	for i, part := range parts {
 		if len(part) > 0 {
-			// 將每個片段的首個字元轉為大寫。
+			// 將每個片段的首個字元轉爲大寫。
 			runes := []rune(part)
 			runes[0] = unicode.ToUpper(runes[0])
 			parts[i] = string(runes)
 		}
 	}
 
-	// 將所有片段串接為 CamelCase 字串。
+	// 將所有片段串接爲 CamelCase 字串。
 	return strings.Join(parts, "")
 }

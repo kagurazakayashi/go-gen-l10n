@@ -1,0 +1,83 @@
+{
+  "@@locale": "zh_Hant",
+  "cli_flag_dir": "l10n 目錄",
+  "@cli_flag_dir": {
+    "description": "CLI 引數：ARB 檔案所在目錄"
+  },
+  "cli_flag_pkg": "套件名稱",
+  "@cli_flag_pkg": {
+    "description": "CLI 引數：輸出的 Go 套件名稱"
+  },
+  "error_find_arb_files": "尋找 ARB 檔案失敗：%v",
+  "@error_find_arb_files": {
+    "description": "搜尋 ARB 檔案時的錯誤"
+  },
+  "error_no_arb_files": "在目錄 %s 中找不到 app_*.arb 檔案",
+  "@error_no_arb_files": {
+    "description": "找不到任何 ARB 檔案時的錯誤"
+  },
+  "info_execution_params": "執行引數：dir=%s, pkg=%s",
+  "@info_execution_params": {
+    "description": "記錄：執行引數資訊"
+  },
+  "info_template_data": "範本資料內容：%+v",
+  "@info_template_data": {
+    "description": "記錄：範本資料內容"
+  },
+  "error_read_arb_file": "讀取 ARB 檔案失敗，檔案路徑=%s，錯誤=%v",
+  "@error_read_arb_file": {
+    "description": "讀取 ARB 檔案時的錯誤"
+  },
+  "error_parse_arb_file": "解析 ARB 檔案失敗，檔案路徑=%s，錯誤=%v",
+  "@error_parse_arb_file": {
+    "description": "解析 ARB 檔案 JSON 時的錯誤"
+  },
+  "error_parse_base_template": "解析基礎範本失敗：%v",
+  "@error_parse_base_template": {
+    "description": "解析基礎程式碼範本時的錯誤"
+  },
+  "error_execute_base_template": "執行基礎範本失敗：%v",
+  "@error_execute_base_template": {
+    "description": "執行基礎程式碼範本時的錯誤"
+  },
+  "error_format_base_code": "格式化基礎程式碼失敗：%v\\n程式碼內容：\\n%s",
+  "@error_format_base_code": {
+    "description": "格式化產生的基礎程式碼時的錯誤"
+  },
+  "error_write_base_file": "寫入基礎檔案失敗：%v",
+  "@error_write_base_file": {
+    "description": "寫入基礎本地化檔案時的錯誤"
+  },
+  "success_generated_code": "成功生成本地化程式碼：%s\n",
+  "@success_generated_code": {
+    "description": "成功產生多語言檔案"
+  },
+  "error_parse_locale_template": "解析語言範本失敗：%v",
+  "@error_parse_locale_template": {
+    "description": "解析語言程式碼範本時的錯誤"
+  },
+  "error_execute_locale_template": "執行語言範本失敗（%s）：%v",
+  "@error_execute_locale_template": {
+    "description": "執行語言程式碼範本時的錯誤"
+  },
+  "error_format_locale_code": "格式化語言程式碼失敗（%s）：%v\\n程式碼內容：\\n%s",
+  "@error_format_locale_code": {
+    "description": "格式化產生的語言程式碼時的錯誤"
+  },
+  "error_write_locale_file": "寫入語言檔案失敗（%s）：%v",
+  "@error_write_locale_file": {
+    "description": "寫入語言本地化檔案時的錯誤"
+  },
+  "comment_locale_implementation": "語言實作：%s",
+  "@comment_locale_implementation": {
+    "description": "產生程式碼中的語言實作註解"
+  },
+  "comment_app_localizations_interface": "定義了所有支援的本地化字串介面",
+  "@comment_app_localizations_interface": {
+    "description": "AppLocalizations 介面的註解"
+  },
+  "comment_get_localizations": "根據語言程式碼取得對應的本地化執行個體",
+  "@comment_get_localizations": {
+    "description": "GetLocalizations 函式的註解"
+  }
+}
