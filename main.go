@@ -1,4 +1,8 @@
 // gen-l10n/main.go
+//
+//go:generate goversioninfo -o=resource_windows_386.syso -64=false -icon=ico/icon.ico -manifest=main.exe.manifest
+//go:generate goversioninfo -o=resource_windows_amd64.syso -64=true -icon=ico/icon.ico -manifest=main.exe.manifest
+//go:generate goversioninfo -o=resource_windows_arm64.syso -arm=true -icon=ico/icon.ico -manifest=main.exe.manifest
 package main
 
 import (
@@ -65,15 +69,15 @@ func main() {
 
 	// 組合程式碼產生器所需的樣板資料。
 	tmplData := TemplateData{
-		PackageName:           pkgName,
-		Keys:                  keys,
-		Locales:               locales,
-		DefaultStructSuffix:   toCamelCase(defaultLocale),
-		GeneratedLocale:       lang,
+		PackageName:         pkgName,
+		Keys:                keys,
+		Locales:             locales,
+		DefaultStructSuffix: toCamelCase(defaultLocale),
+		GeneratedLocale:     lang,
 	}
 
 	// 輸出最終樣板資料，便於檢查產生器輸入內容。
-	log.Printf(L.InfoTemplateData(), tmplData)
+	// log.Printf(L.InfoTemplateData(), tmplData)
 
 	// 依據整理後的樣板資料產生對應的 Go 程式碼。
 	generateGoCode(dir, pkgName, tmplData, L)

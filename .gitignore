@@ -1,4 +1,7 @@
 l10n/app_localizations*.go
+*.syso
+go-gen-l10n
+go-gen-l10n.exe
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,go,goland
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,go,goland
