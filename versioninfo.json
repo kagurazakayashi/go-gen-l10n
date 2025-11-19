@@ -19,9 +19,9 @@
         "FileSubType": "00"
     },
     "StringFileInfo": {
-        "Comments": "TODO",
+        "Comments": "ARB-driven Go localization code generator",
         "CompanyName": "Kagurazaka Yashi",
-        "FileDescription": "TODO",
+        "FileDescription": "ARB-driven Go localization code generator",
         "FileVersion": "1.0.0.0",
         "InternalName": "moe.yashi.gogenl10n",
         "LegalCopyright": "2026, Kagurazaka Yashi.",
