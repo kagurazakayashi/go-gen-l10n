@@ -112,6 +112,25 @@ func main() {
 
 > **Tip:** Use `//go:generate` to automatically run the generator before building.
 
+### Command Reference
+
+```bash
+# Show help
+go-gen-l10n -help
+
+# Run with defaults (English output)
+go-gen-l10n
+
+# Specify directory and package name
+go-gen-l10n -dir ./translations -pkg i18n
+
+# Use Japanese output
+go-gen-l10n -lang ja
+
+# Use Traditional Chinese output
+go-gen-l10n -lang zh_Hant
+```
+
 ## Deployment and Integration
 
 ### Option 1: Download Release (Recommended for Beginners)
@@ -197,24 +216,23 @@ Add the following comment at the top of your entry file (e.g., `main.go`):
 
 Then run `go generate ./...` to invoke the generator automatically.
 
-## Command Reference
+## Unit Tests
 
 ```bash
-# Show help
-go-gen-l10n -help
-
-# Run with defaults (English output)
-go-gen-l10n
-
-# Specify directory and package name
-go-gen-l10n -dir ./translations -pkg i18n
-
-# Use Japanese output
-go-gen-l10n -lang ja
-
-# Use Traditional Chinese output
-go-gen-l10n -lang zh_Hant
+go test ./...
 ```
+
+| Area                 | Tests                                                      | What it demonstrates                                          |
+| -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| ARB parsing          | `TestArbMap`                                               | How `@`-prefixed keys are filtered, non-string values skipped |
+| String conversion    | `TestToCamelCase`                                          | How `snake_case` and `kebab-case` keys become `PascalCase`    |
+| Special characters   | `TestArbMapTranslationQuoting`                             | Proper Go string escaping for quotes, newlines, backslashes   |
+| Templates            | `TestBaseTemplateRendering`, `TestLocaleTemplateRendering` | Template output structure verification                        |
+| Missing translations | `TestLocaleTemplateMissingTranslation`                     | Fallback to raw key name when translation is absent           |
+| End-to-end           | `TestFullGeneration`                                       | Creates temp ARB files, generates code, validates output      |
+| Generated package    | `TestGetLocalizationsKnownLocales`                         | `GetLocalizations()` returns correct type per locale          |
+| Locale fallback      | `TestGetLocalizationsFallback`                             | Unknown locales fall back to default language                 |
+| Translation values   | `TestAppLocalizationsEnMethods` etc.                       | Actual translation text for each locale                       |
 
 ## License
 

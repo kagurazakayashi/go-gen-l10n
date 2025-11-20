@@ -112,6 +112,25 @@ func main() {
 
 > **提示：** 你可以通过 `//go:generate` 指令在项目构建前自动运行代码生成器。
 
+### 常用命令速查
+
+```bash
+# 查看帮助
+go-gen-l10n -help
+
+# 使用默认参数生成（英文输出）
+go-gen-l10n
+
+# 指定目录和包名
+go-gen-l10n -dir ./translations -pkg i18n
+
+# 使用日文输出
+go-gen-l10n -lang ja
+
+# 使用繁体中文输出
+go-gen-l10n -lang zh_Hant
+```
+
 ## 部署和集成方式
 
 ### 方式一：下载 Release（推荐新手使用）
@@ -197,24 +216,23 @@ go install ./tools/go-gen-l10n
 
 之后运行 `go generate ./...` 即可自动调用代码生成器。
 
-## 常用命令速查
+## 单元测试
 
 ```bash
-# 查看帮助
-go-gen-l10n -help
-
-# 使用默认参数生成（英文输出）
-go-gen-l10n
-
-# 指定目录和包名
-go-gen-l10n -dir ./translations -pkg i18n
-
-# 使用日文输出
-go-gen-l10n -lang ja
-
-# 使用繁体中文输出
-go-gen-l10n -lang zh_Hant
+go test ./...
 ```
+
+| 测试范围   | 测试名称                                                   | 演示内容                                     |
+| ---------- | ---------------------------------------------------------- | -------------------------------------------- |
+| ARB 解析   | `TestArbMap`                                               | `@` 前缀键过滤、非字符串值跳过               |
+| 字符串转换 | `TestToCamelCase`                                          | `snake_case` 和 `kebab-case` 转 `PascalCase` |
+| 特殊字符   | `TestArbMapTranslationQuoting`                             | 引号、换行、反斜杠的 Go 字符串转义           |
+| 模板渲染   | `TestBaseTemplateRendering`、`TestLocaleTemplateRendering` | 模板输出结构验证                             |
+| 缺失翻译   | `TestLocaleTemplateMissingTranslation`                     | 翻译缺失时回退到原始 key 名称                |
+| 端到端     | `TestFullGeneration`                                       | 创建临时 ARB 文件、生成代码、验证输出        |
+| 生成的包   | `TestGetLocalizationsKnownLocales`                         | `GetLocalizations()` 按语言返回正确类型      |
+| 语言回退   | `TestGetLocalizationsFallback`                             | 未知语言代码回退到默认语言                   |
+| 翻译值     | `TestAppLocalizationsEnMethods` 等                         | 每种语言的实际翻译文本                       |
 
 ## 许可证
 

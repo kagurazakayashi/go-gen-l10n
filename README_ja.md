@@ -112,6 +112,25 @@ func main() {
 
 > **ヒント：** `//go:generate` を使用して、ビルド前に自動的にジェネレーターを実行できます。
 
+### コマンドリファレンス
+
+```bash
+# ヘルプを表示
+go-gen-l10n -help
+
+# デフォルト設定で実行（英語出力）
+go-gen-l10n
+
+# ディレクトリとパッケージ名を指定
+go-gen-l10n -dir ./translations -pkg i18n
+
+# 日本語出力を使用
+go-gen-l10n -lang ja
+
+# 中国語（繁体字）出力を使用
+go-gen-l10n -lang zh_Hant
+```
+
 ## デプロイと統合方法
 
 ### 方法 1：リリースをダウンロード（初心者におすすめ）
@@ -197,24 +216,23 @@ go install ./tools/go-gen-l10n
 
 その後、`go generate ./...` を実行すると自動的にジェネレーターが呼び出されます。
 
-## コマンドリファレンス
+## ユニットテスト
 
 ```bash
-# ヘルプを表示
-go-gen-l10n -help
-
-# デフォルト設定で実行（英語出力）
-go-gen-l10n
-
-# ディレクトリとパッケージ名を指定
-go-gen-l10n -dir ./translations -pkg i18n
-
-# 日本語出力を使用
-go-gen-l10n -lang ja
-
-# 中国語（繁体字）出力を使用
-go-gen-l10n -lang zh_Hant
+go test ./...
 ```
+
+| テスト範囲             | テスト名                                                   | デモ内容                                                     |
+| ---------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
+| ARB 解析               | `TestArbMap`                                               | `@` プレフィックスキーのフィルタリング、非文字列値のスキップ |
+| 文字列変換             | `TestToCamelCase`                                          | `snake_case` と `kebab-case` から `PascalCase` への変換      |
+| 特殊文字               | `TestArbMapTranslationQuoting`                             | 引用符、改行、バックスラッシュの Go 文字列エスケープ         |
+| テンプレート           | `TestBaseTemplateRendering`、`TestLocaleTemplateRendering` | テンプレート出力構造の検証                                   |
+| 欠落翻訳               | `TestLocaleTemplateMissingTranslation`                     | 翻訳がない場合のキー名へのフォールバック                     |
+| エンドツーエンド       | `TestFullGeneration`                                       | 一時 ARB ファイル作成、コード生成、出力検証                  |
+| 生成パッケージ         | `TestGetLocalizationsKnownLocales`                         | `GetLocalizations()` がロケールごとに正しい型を返す          |
+| ロケールフォールバック | `TestGetLocalizationsFallback`                             | 不明なロケールがデフォルト言語にフォールバック               |
+| 翻訳値                 | `TestAppLocalizationsEnMethods` など                       | 各ロケールの実際の翻訳テキスト                               |
 
 ## ライセンス
 
