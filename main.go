@@ -14,7 +14,8 @@ import (
 	"github.com/kagurazakayashi/go-gen-l10n/l10n"
 )
 
-// main 為程式進入點，負責解析命令列參數、掃描指定目錄中的 ARB 語系檔案，並產生對應的 Go 程式碼。
+// main 為程式進入點，負責解析命令列參數、掃描指定目錄中的 ARB 語系檔案，
+// 並產生對應的 Go 程式碼。
 func main() {
 	// dirPtr 為 l10n 目錄路徑參數，用於指定 ARB 語系檔所在目錄。
 	dirPtr := flag.String("dir", "./l10n", "l10n dir")
@@ -53,7 +54,7 @@ func main() {
 		localeId, localeData, keysAdd := loadArbFile(file, L)
 		locales = append(locales, localeData)
 
-		// 使用全局 keySet 去重，避免相同鍵在多個 ARB 檔案間重複
+		// 使用全域 keySet 去重，避免相同鍵在多個 ARB 檔案間重複。
 		for _, k := range keysAdd {
 			if !keySet[k.Key] {
 				keySet[k.Key] = true
@@ -67,7 +68,7 @@ func main() {
 		}
 	}
 
-	// 組合程式碼產生器所需的樣板資料。
+	// 組合程式碼產生器所需的範本資料。
 	tmplData := TemplateData{
 		PackageName:         pkgName,
 		Keys:                keys,
@@ -76,10 +77,10 @@ func main() {
 		GeneratedLocale:     lang,
 	}
 
-	// 輸出最終樣板資料，便於檢查產生器輸入內容。
-	// log.Printf(L.InfoTemplateData(), tmplData)
+	// 輸出最終範本資料，便於檢查產生器輸入內容。
+	log.Printf(L.InfoTemplateData(), tmplData)
 
-	// 依據整理後的樣板資料產生對應的 Go 程式碼。
+	// 依據整理後的範本資料產生對應的 Go 程式碼。
 	generateGoCode(dir, pkgName, tmplData, L)
 
 	// 成功結束程式，回傳 0 給作業系統。

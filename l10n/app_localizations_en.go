@@ -4,35 +4,14 @@ package l10n
 // Locale implementation: en
 type appLocalizationsEn struct{}
 
+func (l *appLocalizationsEn) ErrorExecuteBaseTemplate() string {
+	return "Failed to execute base template: %v"
+}
 func (l *appLocalizationsEn) CommentGetLocalizations() string {
 	return "Returns the localization instance based on locale code"
 }
 func (l *appLocalizationsEn) CliFlagDir() string {
 	return "l10n dir"
-}
-func (l *appLocalizationsEn) ErrorFindArbFiles() string {
-	return "Failed to find ARB files: %v"
-}
-func (l *appLocalizationsEn) ErrorNoArbFiles() string {
-	return "No app_*.arb files found in directory %s"
-}
-func (l *appLocalizationsEn) InfoExecutionParams() string {
-	return "Execution parameters: dir=%s, pkg=%s"
-}
-func (l *appLocalizationsEn) ErrorParseBaseTemplate() string {
-	return "Failed to parse base template: %v"
-}
-func (l *appLocalizationsEn) CommentLocaleImplementation() string {
-	return "Locale implementation: %s"
-}
-func (l *appLocalizationsEn) CommentAppLocalizationsInterface() string {
-	return "Defines the interface for all supported localized strings"
-}
-func (l *appLocalizationsEn) ErrorWriteBaseFile() string {
-	return "Failed to write base file: %v"
-}
-func (l *appLocalizationsEn) ErrorParseLocaleTemplate() string {
-	return "Failed to parse locale template: %v"
 }
 func (l *appLocalizationsEn) ErrorFormatBaseCode() string {
 	return "Failed to format base code: %v\nCode content:\n%s"
@@ -40,17 +19,26 @@ func (l *appLocalizationsEn) ErrorFormatBaseCode() string {
 func (l *appLocalizationsEn) ErrorExecuteLocaleTemplate() string {
 	return "Failed to execute locale template (%s): %v"
 }
-func (l *appLocalizationsEn) ErrorExecuteBaseTemplate() string {
-	return "Failed to execute base template: %v"
+func (l *appLocalizationsEn) ErrorFormatLocaleCode() string {
+	return "Failed to format locale code (%s): %v\nCode content:\n%s"
 }
-func (l *appLocalizationsEn) SuccessGeneratedCode() string {
-	return "Generated localization code: %s\n"
+func (l *appLocalizationsEn) CommentAppLocalizationsInterface() string {
+	return "Defines the interface for all supported localized strings"
 }
-func (l *appLocalizationsEn) ErrorWriteLocaleFile() string {
-	return "Failed to write locale file (%s): %v"
+func (l *appLocalizationsEn) ErrorParseLocaleTemplate() string {
+	return "Failed to parse locale template: %v"
 }
 func (l *appLocalizationsEn) CliFlagPkg() string {
 	return "package name"
+}
+func (l *appLocalizationsEn) InfoExecutionParams() string {
+	return "Execution parameters: dir=%s, pkg=%s"
+}
+func (l *appLocalizationsEn) ErrorFindArbFiles() string {
+	return "Failed to find ARB files: %v"
+}
+func (l *appLocalizationsEn) CommentLocaleImplementation() string {
+	return "Locale implementation: %s"
 }
 func (l *appLocalizationsEn) ErrorReadArbFile() string {
 	return "Failed to read ARB file: path=%s, error=%v"
@@ -58,9 +46,21 @@ func (l *appLocalizationsEn) ErrorReadArbFile() string {
 func (l *appLocalizationsEn) ErrorParseArbFile() string {
 	return "Failed to parse ARB file: path=%s, error=%v"
 }
-func (l *appLocalizationsEn) ErrorFormatLocaleCode() string {
-	return "Failed to format locale code (%s): %v\nCode content:\n%s"
+func (l *appLocalizationsEn) SuccessGeneratedCode() string {
+	return "Generated localization code: %s\n"
+}
+func (l *appLocalizationsEn) ErrorNoArbFiles() string {
+	return "No app_*.arb files found in directory %s"
+}
+func (l *appLocalizationsEn) ErrorWriteLocaleFile() string {
+	return "Failed to write locale file (%s): %v"
 }
 func (l *appLocalizationsEn) InfoTemplateData() string {
 	return "Template data: %+v"
+}
+func (l *appLocalizationsEn) ErrorParseBaseTemplate() string {
+	return "Failed to parse base template: %v"
+}
+func (l *appLocalizationsEn) ErrorWriteBaseFile() string {
+	return "Failed to write base file: %v"
 }

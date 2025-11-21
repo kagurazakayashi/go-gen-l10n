@@ -3,26 +3,26 @@ package l10n
 
 // Defines the interface for all supported localized strings
 type AppLocalizations interface {
+	ErrorExecuteBaseTemplate() string
 	CommentGetLocalizations() string
 	CliFlagDir() string
-	ErrorFindArbFiles() string
-	ErrorNoArbFiles() string
-	InfoExecutionParams() string
-	ErrorParseBaseTemplate() string
-	CommentLocaleImplementation() string
-	CommentAppLocalizationsInterface() string
-	ErrorWriteBaseFile() string
-	ErrorParseLocaleTemplate() string
 	ErrorFormatBaseCode() string
 	ErrorExecuteLocaleTemplate() string
-	ErrorExecuteBaseTemplate() string
-	SuccessGeneratedCode() string
-	ErrorWriteLocaleFile() string
+	ErrorFormatLocaleCode() string
+	CommentAppLocalizationsInterface() string
+	ErrorParseLocaleTemplate() string
 	CliFlagPkg() string
+	InfoExecutionParams() string
+	ErrorFindArbFiles() string
+	CommentLocaleImplementation() string
 	ErrorReadArbFile() string
 	ErrorParseArbFile() string
-	ErrorFormatLocaleCode() string
+	SuccessGeneratedCode() string
+	ErrorNoArbFiles() string
+	ErrorWriteLocaleFile() string
 	InfoTemplateData() string
+	ErrorParseBaseTemplate() string
+	ErrorWriteBaseFile() string
 }
 
 // Returns the localization instance based on locale code
