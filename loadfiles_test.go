@@ -30,7 +30,7 @@ func (m *mockL10n) ErrorFormatLocaleCode() string            { return "Failed to
 func (m *mockL10n) ErrorWriteLocaleFile() string             { return "Failed to write locale file (%s): %v" }
 func (m *mockL10n) InfoExecutionParams() string              { return "Execution parameters: dir=%s, pkg=%s" }
 func (m *mockL10n) InfoTemplateData() string                 { return "Template data: %+v" }
-func (m *mockL10n) SuccessGeneratedCode() string             { return "Generated: %s\n" }
+func (m *mockL10n) SuccessGeneratedCode() string             { return "Generated: %s" }
 
 // 確認 mockL10n 實作了 AppLocalizations 介面
 var _ l10n.AppLocalizations = (*mockL10n)(nil)

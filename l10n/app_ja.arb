@@ -48,7 +48,7 @@
   "@error_write_base_file": {
     "description": "基本ローカライゼーションファイルを書き込む際のエラー"
   },
-  "success_generated_code": "ローカライゼーションコードを生成しました：%s\n",
+  "success_generated_code": "ローカライゼーションコードを生成しました：%s",
   "@success_generated_code": {
     "description": "多言語ファイルの生成に成功"
   },

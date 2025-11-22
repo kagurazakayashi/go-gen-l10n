@@ -48,7 +48,7 @@
   "@error_write_base_file": {
     "description": "Error writing base localization file"
   },
-  "success_generated_code": "Generated localization code: %s\n",
+  "success_generated_code": "Generated localization code: %s",
   "@success_generated_code": {
     "description": "Successfully generated localization file"
   },

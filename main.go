@@ -77,9 +77,6 @@ func main() {
 		GeneratedLocale:     lang,
 	}
 
-	// 輸出最終範本資料，便於檢查產生器輸入內容。
-	log.Printf(L.InfoTemplateData(), tmplData)
-
 	// 依據整理後的範本資料產生對應的 Go 程式碼。
 	generateGoCode(dir, pkgName, tmplData, L)
 

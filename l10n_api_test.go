@@ -51,7 +51,7 @@ func TestAppLocalizationsEnMethods(t *testing.T) {
 	if got := l.CliFlagPkg(); got != "package name" {
 		t.Errorf("CliFlagPkg() = %q, want %q", got, "package name")
 	}
-	if got := l.SuccessGeneratedCode(); got != "Generated localization code: %s\n" {
+	if got := l.SuccessGeneratedCode(); got != "Generated localization code: %s" {
 		t.Errorf("SuccessGeneratedCode() = %q", got)
 	}
 }
@@ -64,7 +64,7 @@ func TestAppLocalizationsZhMethods(t *testing.T) {
 	if got := l.CliFlagDir(); got != "l10n 目录" {
 		t.Errorf("CliFlagDir() = %q, want %q", got, "l10n 目录")
 	}
-	if got := l.SuccessGeneratedCode(); got != "成功生成本地化代码：%s\n" {
+	if got := l.SuccessGeneratedCode(); got != "成功生成本地化代码：%s" {
 		t.Errorf("SuccessGeneratedCode() = %q", got)
 	}
 }

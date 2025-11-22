@@ -45,12 +45,9 @@ func generateGoCode(dir, pkgName string, data TemplateData, L l10n.AppLocalizati
 		log.Fatalf(L.ErrorFormatBaseCode(), err, baseBuf.String())
 	}
 
-	// 寫入基礎檔案
+	// 寫入基礎檔案並輸出差異資訊
 	basePath := filepath.Join(dir, "app_localizations.go")
-	if err := os.WriteFile(basePath, formattedBase, fs.ModePerm); err != nil {
-		log.Fatalf(L.ErrorWriteBaseFile(), err)
-	}
-	fmt.Printf(L.SuccessGeneratedCode(), basePath)
+	writeFileWithDiff(basePath, formattedBase, L)
 
 	// 解析語言範本——用於產生每個語言的實作檔案
 	localeTmpl, err := template.New("locale").Parse(LocaleTemplate)
@@ -80,9 +77,69 @@ func generateGoCode(dir, pkgName string, data TemplateData, L l10n.AppLocalizati
 		// 檔案名稱使用小寫語言代碼（如 app_localizations_en.go）
 		localeFileName := fmt.Sprintf("app_localizations_%s.go", strings.ToLower(locale.ID))
 		localePath := filepath.Join(dir, localeFileName)
-		if err := os.WriteFile(localePath, formattedLocale, fs.ModePerm); err != nil {
-			log.Fatalf(L.ErrorWriteLocaleFile(), locale.ID, err)
-		}
-		fmt.Printf(L.SuccessGeneratedCode(), localePath)
+		writeFileWithDiff(localePath, formattedLocale, L)
 	}
+}
+
+// writeFileWithDiff 寫入檔案並輸出與既有檔案的差異統計。
+// 若檔案為新建立則顯示 (new)；若為更新則顯示 (+N -M) 行數變化。
+func writeFileWithDiff(path string, content []byte, L l10n.AppLocalizations) {
+	oldContent, _ := os.ReadFile(path)
+
+	if err := os.WriteFile(path, content, fs.ModePerm); err != nil {
+		log.Fatalf(L.ErrorWriteLocaleFile(), path, err)
+	}
+
+	msg := fmt.Sprintf(L.SuccessGeneratedCode(), path)
+	if oldContent == nil {
+		fmt.Printf("%s (new)\n", msg)
+	} else {
+		added, removed := lineDiff(oldContent, content)
+		if added == 0 && removed == 0 {
+			fmt.Printf("%s (unchanged)\n", msg)
+		} else {
+			fmt.Printf("%s (+%d -%d)\n", msg, added, removed)
+		}
+	}
+}
+
+// lineDiff 計算兩份內容的行級差異。
+// 回傳新增行數與刪除行數。
+func lineDiff(old, new []byte) (added, removed int) {
+	oldLines := strings.Split(string(old), "\n")
+	newLines := strings.Split(string(new), "\n")
+
+	// 使用簡單的 LCS 演算法找出共同行數
+	common := longestCommonSubsequence(oldLines, newLines)
+	added = len(newLines) - common
+	removed = len(oldLines) - common
+	return
+}
+
+// longestCommonSubsequence 計算兩份行陣列的最長共同子序列長度。
+func longestCommonSubsequence(a, b []string) int {
+	m, n := len(a), len(b)
+	if m == 0 || n == 0 {
+		return 0
+	}
+	// 使用滾動陣列節省記憶體
+	prev := make([]int, n+1)
+	curr := make([]int, n+1)
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if a[i-1] == b[j-1] {
+				curr[j] = prev[j-1] + 1
+			} else {
+				left := curr[j-1]
+				up := prev[j]
+				if left > up {
+					curr[j] = left
+				} else {
+					curr[j] = up
+				}
+			}
+		}
+		prev, curr = curr, prev
+	}
+	return prev[n]
 }

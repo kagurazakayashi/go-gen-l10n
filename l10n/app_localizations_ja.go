@@ -4,29 +4,11 @@ package l10n
 // Locale implementation: ja
 type appLocalizationsJa struct{}
 
-func (l *appLocalizationsJa) ErrorExecuteBaseTemplate() string {
-	return "基本テンプレートの実行に失敗しました：%v"
-}
-func (l *appLocalizationsJa) CommentGetLocalizations() string {
-	return "言語コードに基づいてローカライゼーションインスタンスを取得します"
+func (l *appLocalizationsJa) ErrorParseLocaleTemplate() string {
+	return "言語テンプレートの解析に失敗しました：%v"
 }
 func (l *appLocalizationsJa) CliFlagDir() string {
 	return "l10n ディレクトリ"
-}
-func (l *appLocalizationsJa) ErrorFormatBaseCode() string {
-	return "基本コードのフォーマットに失敗しました：%v\\nコード内容：\\n%s"
-}
-func (l *appLocalizationsJa) ErrorExecuteLocaleTemplate() string {
-	return "言語テンプレートの実行に失敗しました（%s）：%v"
-}
-func (l *appLocalizationsJa) ErrorFormatLocaleCode() string {
-	return "言語コードのフォーマットに失敗しました（%s）：%v\\nコード内容：\\n%s"
-}
-func (l *appLocalizationsJa) CommentAppLocalizationsInterface() string {
-	return "サポートされるすべてのローカライズされた文字列のインターフェースを定義します"
-}
-func (l *appLocalizationsJa) ErrorParseLocaleTemplate() string {
-	return "言語テンプレートの解析に失敗しました：%v"
 }
 func (l *appLocalizationsJa) CliFlagPkg() string {
 	return "パッケージ名"
@@ -34,33 +16,51 @@ func (l *appLocalizationsJa) CliFlagPkg() string {
 func (l *appLocalizationsJa) InfoExecutionParams() string {
 	return "実行パラメータ：dir=%s, pkg=%s"
 }
-func (l *appLocalizationsJa) ErrorFindArbFiles() string {
-	return "ARB ファイルの検索に失敗しました：%v"
-}
-func (l *appLocalizationsJa) CommentLocaleImplementation() string {
-	return "言語実装：%s"
-}
-func (l *appLocalizationsJa) ErrorReadArbFile() string {
-	return "ARB ファイルの読み込みに失敗しました：パス=%s, エラー=%v"
-}
-func (l *appLocalizationsJa) ErrorParseArbFile() string {
-	return "ARB ファイルの解析に失敗しました：パス=%s, エラー=%v"
-}
-func (l *appLocalizationsJa) SuccessGeneratedCode() string {
-	return "ローカライゼーションコードを生成しました：%s\n"
-}
 func (l *appLocalizationsJa) ErrorNoArbFiles() string {
 	return "ディレクトリ %s に app_*.arb ファイルが見つかりません"
 }
-func (l *appLocalizationsJa) ErrorWriteLocaleFile() string {
-	return "言語ファイルの書き込みに失敗しました（%s）：%v"
+func (l *appLocalizationsJa) ErrorFormatBaseCode() string {
+	return "基本コードのフォーマットに失敗しました：%v\\nコード内容：\\n%s"
 }
-func (l *appLocalizationsJa) InfoTemplateData() string {
-	return "テンプレートデータ内容：%+v"
+func (l *appLocalizationsJa) ErrorExecuteLocaleTemplate() string {
+	return "言語テンプレートの実行に失敗しました（%s）：%v"
+}
+func (l *appLocalizationsJa) CommentAppLocalizationsInterface() string {
+	return "サポートされるすべてのローカライズされた文字列のインターフェースを定義します"
+}
+func (l *appLocalizationsJa) ErrorWriteBaseFile() string {
+	return "基本ファイルの書き込みに失敗しました：%v"
+}
+func (l *appLocalizationsJa) SuccessGeneratedCode() string {
+	return "ローカライゼーションコードを生成しました：%s"
 }
 func (l *appLocalizationsJa) ErrorParseBaseTemplate() string {
 	return "基本テンプレートの解析に失敗しました：%v"
 }
-func (l *appLocalizationsJa) ErrorWriteBaseFile() string {
-	return "基本ファイルの書き込みに失敗しました：%v"
+func (l *appLocalizationsJa) CommentGetLocalizations() string {
+	return "言語コードに基づいてローカライゼーションインスタンスを取得します"
+}
+func (l *appLocalizationsJa) ErrorWriteLocaleFile() string {
+	return "言語ファイルの書き込みに失敗しました（%s）：%v"
+}
+func (l *appLocalizationsJa) CommentLocaleImplementation() string {
+	return "言語実装：%s"
+}
+func (l *appLocalizationsJa) ErrorFormatLocaleCode() string {
+	return "言語コードのフォーマットに失敗しました（%s）：%v\\nコード内容：\\n%s"
+}
+func (l *appLocalizationsJa) InfoTemplateData() string {
+	return "テンプレートデータ内容：%+v"
+}
+func (l *appLocalizationsJa) ErrorParseArbFile() string {
+	return "ARB ファイルの解析に失敗しました：パス=%s, エラー=%v"
+}
+func (l *appLocalizationsJa) ErrorFindArbFiles() string {
+	return "ARB ファイルの検索に失敗しました：%v"
+}
+func (l *appLocalizationsJa) ErrorReadArbFile() string {
+	return "ARB ファイルの読み込みに失敗しました：パス=%s, エラー=%v"
+}
+func (l *appLocalizationsJa) ErrorExecuteBaseTemplate() string {
+	return "基本テンプレートの実行に失敗しました：%v"
 }

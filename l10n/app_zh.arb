@@ -48,7 +48,7 @@
   "@error_write_base_file": {
     "description": "写入基础本地化文件时的错误"
   },
-  "success_generated_code": "成功生成本地化代码：%s\n",
+  "success_generated_code": "成功生成本地化代码：%s",
   "@success_generated_code": {
     "description": "成功生成多语言文件"
   },

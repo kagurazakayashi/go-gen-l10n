@@ -4,29 +4,11 @@ package l10n
 // Locale implementation: zh
 type appLocalizationsZh struct{}
 
-func (l *appLocalizationsZh) ErrorExecuteBaseTemplate() string {
-	return "执行基础模板失败：%v"
-}
-func (l *appLocalizationsZh) CommentGetLocalizations() string {
-	return "根据语言代码获取对应的本地化实例"
+func (l *appLocalizationsZh) ErrorParseLocaleTemplate() string {
+	return "解析语言模板失败：%v"
 }
 func (l *appLocalizationsZh) CliFlagDir() string {
 	return "l10n 目录"
-}
-func (l *appLocalizationsZh) ErrorFormatBaseCode() string {
-	return "格式化基础代码失败：%v\\n代码内容：\\n%s"
-}
-func (l *appLocalizationsZh) ErrorExecuteLocaleTemplate() string {
-	return "执行语言模板失败（%s）：%v"
-}
-func (l *appLocalizationsZh) ErrorFormatLocaleCode() string {
-	return "格式化语言代码失败（%s）：%v\\n代码内容：\\n%s"
-}
-func (l *appLocalizationsZh) CommentAppLocalizationsInterface() string {
-	return "定义了所有多语言字符串接口"
-}
-func (l *appLocalizationsZh) ErrorParseLocaleTemplate() string {
-	return "解析语言模板失败：%v"
 }
 func (l *appLocalizationsZh) CliFlagPkg() string {
 	return "包名"
@@ -34,33 +16,51 @@ func (l *appLocalizationsZh) CliFlagPkg() string {
 func (l *appLocalizationsZh) InfoExecutionParams() string {
 	return "执行参数：dir=%s, pkg=%s"
 }
-func (l *appLocalizationsZh) ErrorFindArbFiles() string {
-	return "查找 ARB 文件失败：%v"
-}
-func (l *appLocalizationsZh) CommentLocaleImplementation() string {
-	return "语言实现：%s"
-}
-func (l *appLocalizationsZh) ErrorReadArbFile() string {
-	return "读取 ARB 文件失败，文件路径=%s，错误=%v"
-}
-func (l *appLocalizationsZh) ErrorParseArbFile() string {
-	return "解析 ARB 文件失败，文件路径=%s，错误=%v"
-}
-func (l *appLocalizationsZh) SuccessGeneratedCode() string {
-	return "成功生成本地化代码：%s\n"
-}
 func (l *appLocalizationsZh) ErrorNoArbFiles() string {
 	return "在目录 %s 中找不到 app_*.arb 文件"
 }
-func (l *appLocalizationsZh) ErrorWriteLocaleFile() string {
-	return "写入语言文件失败（%s）：%v"
+func (l *appLocalizationsZh) ErrorFormatBaseCode() string {
+	return "格式化基础代码失败：%v\\n代码内容：\\n%s"
 }
-func (l *appLocalizationsZh) InfoTemplateData() string {
-	return "模板数据内容：%+v"
+func (l *appLocalizationsZh) ErrorExecuteLocaleTemplate() string {
+	return "执行语言模板失败（%s）：%v"
+}
+func (l *appLocalizationsZh) CommentAppLocalizationsInterface() string {
+	return "定义了所有多语言字符串接口"
+}
+func (l *appLocalizationsZh) ErrorWriteBaseFile() string {
+	return "写入基础文件失败：%v"
+}
+func (l *appLocalizationsZh) SuccessGeneratedCode() string {
+	return "成功生成本地化代码：%s"
 }
 func (l *appLocalizationsZh) ErrorParseBaseTemplate() string {
 	return "解析基础模板失败：%v"
 }
-func (l *appLocalizationsZh) ErrorWriteBaseFile() string {
-	return "写入基础文件失败：%v"
+func (l *appLocalizationsZh) CommentGetLocalizations() string {
+	return "根据语言代码获取对应的本地化实例"
+}
+func (l *appLocalizationsZh) ErrorWriteLocaleFile() string {
+	return "写入语言文件失败（%s）：%v"
+}
+func (l *appLocalizationsZh) CommentLocaleImplementation() string {
+	return "语言实现：%s"
+}
+func (l *appLocalizationsZh) ErrorFormatLocaleCode() string {
+	return "格式化语言代码失败（%s）：%v\\n代码内容：\\n%s"
+}
+func (l *appLocalizationsZh) InfoTemplateData() string {
+	return "模板数据内容：%+v"
+}
+func (l *appLocalizationsZh) ErrorParseArbFile() string {
+	return "解析 ARB 文件失败，文件路径=%s，错误=%v"
+}
+func (l *appLocalizationsZh) ErrorFindArbFiles() string {
+	return "查找 ARB 文件失败：%v"
+}
+func (l *appLocalizationsZh) ErrorReadArbFile() string {
+	return "读取 ARB 文件失败，文件路径=%s，错误=%v"
+}
+func (l *appLocalizationsZh) ErrorExecuteBaseTemplate() string {
+	return "执行基础模板失败：%v"
 }

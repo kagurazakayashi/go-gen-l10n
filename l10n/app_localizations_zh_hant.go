@@ -4,29 +4,11 @@ package l10n
 // Locale implementation: zh_Hant
 type appLocalizationsZhHant struct{}
 
-func (l *appLocalizationsZhHant) ErrorExecuteBaseTemplate() string {
-	return "執行基礎範本失敗：%v"
-}
-func (l *appLocalizationsZhHant) CommentGetLocalizations() string {
-	return "根據語言程式碼取得對應的本地化執行個體"
+func (l *appLocalizationsZhHant) ErrorParseLocaleTemplate() string {
+	return "解析語言範本失敗：%v"
 }
 func (l *appLocalizationsZhHant) CliFlagDir() string {
 	return "l10n 目錄"
-}
-func (l *appLocalizationsZhHant) ErrorFormatBaseCode() string {
-	return "格式化基礎程式碼失敗：%v\\n程式碼內容：\\n%s"
-}
-func (l *appLocalizationsZhHant) ErrorExecuteLocaleTemplate() string {
-	return "執行語言範本失敗（%s）：%v"
-}
-func (l *appLocalizationsZhHant) ErrorFormatLocaleCode() string {
-	return "格式化語言程式碼失敗（%s）：%v\\n程式碼內容：\\n%s"
-}
-func (l *appLocalizationsZhHant) CommentAppLocalizationsInterface() string {
-	return "定義了所有支援的本地化字串介面"
-}
-func (l *appLocalizationsZhHant) ErrorParseLocaleTemplate() string {
-	return "解析語言範本失敗：%v"
 }
 func (l *appLocalizationsZhHant) CliFlagPkg() string {
 	return "套件名稱"
@@ -34,33 +16,51 @@ func (l *appLocalizationsZhHant) CliFlagPkg() string {
 func (l *appLocalizationsZhHant) InfoExecutionParams() string {
 	return "執行引數：dir=%s, pkg=%s"
 }
-func (l *appLocalizationsZhHant) ErrorFindArbFiles() string {
-	return "尋找 ARB 檔案失敗：%v"
-}
-func (l *appLocalizationsZhHant) CommentLocaleImplementation() string {
-	return "語言實作：%s"
-}
-func (l *appLocalizationsZhHant) ErrorReadArbFile() string {
-	return "讀取 ARB 檔案失敗，檔案路徑=%s，錯誤=%v"
-}
-func (l *appLocalizationsZhHant) ErrorParseArbFile() string {
-	return "解析 ARB 檔案失敗，檔案路徑=%s，錯誤=%v"
-}
-func (l *appLocalizationsZhHant) SuccessGeneratedCode() string {
-	return "成功生成本地化程式碼：%s\n"
-}
 func (l *appLocalizationsZhHant) ErrorNoArbFiles() string {
 	return "在目錄 %s 中找不到 app_*.arb 檔案"
 }
-func (l *appLocalizationsZhHant) ErrorWriteLocaleFile() string {
-	return "寫入語言檔案失敗（%s）：%v"
+func (l *appLocalizationsZhHant) ErrorFormatBaseCode() string {
+	return "格式化基礎程式碼失敗：%v\\n程式碼內容：\\n%s"
 }
-func (l *appLocalizationsZhHant) InfoTemplateData() string {
-	return "範本資料內容：%+v"
+func (l *appLocalizationsZhHant) ErrorExecuteLocaleTemplate() string {
+	return "執行語言範本失敗（%s）：%v"
+}
+func (l *appLocalizationsZhHant) CommentAppLocalizationsInterface() string {
+	return "定義了所有支援的本地化字串介面"
+}
+func (l *appLocalizationsZhHant) ErrorWriteBaseFile() string {
+	return "寫入基礎檔案失敗：%v"
+}
+func (l *appLocalizationsZhHant) SuccessGeneratedCode() string {
+	return "成功生成本地化程式碼：%s"
 }
 func (l *appLocalizationsZhHant) ErrorParseBaseTemplate() string {
 	return "解析基礎範本失敗：%v"
 }
-func (l *appLocalizationsZhHant) ErrorWriteBaseFile() string {
-	return "寫入基礎檔案失敗：%v"
+func (l *appLocalizationsZhHant) CommentGetLocalizations() string {
+	return "根據語言程式碼取得對應的本地化執行個體"
+}
+func (l *appLocalizationsZhHant) ErrorWriteLocaleFile() string {
+	return "寫入語言檔案失敗（%s）：%v"
+}
+func (l *appLocalizationsZhHant) CommentLocaleImplementation() string {
+	return "語言實作：%s"
+}
+func (l *appLocalizationsZhHant) ErrorFormatLocaleCode() string {
+	return "格式化語言程式碼失敗（%s）：%v\\n程式碼內容：\\n%s"
+}
+func (l *appLocalizationsZhHant) InfoTemplateData() string {
+	return "範本資料內容：%+v"
+}
+func (l *appLocalizationsZhHant) ErrorParseArbFile() string {
+	return "解析 ARB 檔案失敗，檔案路徑=%s，錯誤=%v"
+}
+func (l *appLocalizationsZhHant) ErrorFindArbFiles() string {
+	return "尋找 ARB 檔案失敗：%v"
+}
+func (l *appLocalizationsZhHant) ErrorReadArbFile() string {
+	return "讀取 ARB 檔案失敗，檔案路徑=%s，錯誤=%v"
+}
+func (l *appLocalizationsZhHant) ErrorExecuteBaseTemplate() string {
+	return "執行基礎範本失敗：%v"
 }
