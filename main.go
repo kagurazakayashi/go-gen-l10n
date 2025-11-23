@@ -10,6 +10,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"slices"
 
 	"github.com/kagurazakayashi/go-gen-l10n/l10n"
 )
@@ -67,6 +68,17 @@ func main() {
 			defaultLocale = localeId
 		}
 	}
+
+	// 按 MethodName 字母排序，確保產生的程式碼順序一致。
+	slices.SortFunc(keys, func(a, b KeyMeta) int {
+		if a.MethodName < b.MethodName {
+			return -1
+		}
+		if a.MethodName > b.MethodName {
+			return 1
+		}
+		return 0
+	})
 
 	// 組合程式碼產生器所需的範本資料。
 	tmplData := TemplateData{
