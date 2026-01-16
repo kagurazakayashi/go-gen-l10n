@@ -1,4 +1,4 @@
-![go-gen-l10n](./ico/icon.ico)
+![go-gen-l10n](ico/icon.png)
 
 # go-gen-l10n
 
@@ -110,7 +110,25 @@ func main() {
 
 `GetLocalizations()` returns the translation instance for the given locale code. If the requested locale is not supported, it falls back to the default locale (the first loaded ARB file's language).
 
-> **Tip:** Use `//go:generate` to automatically run the generator before building.
+> **Tip:** You can use `//go:generate` to automatically run the generator before building.
+>
+> Add the following comment at the top of any `.go` file in your project (e.g., `main.go`):
+>
+> ```go
+> //go:generate go-gen-l10n -dir ./l10n -pkg l10n -lang en
+> ```
+>
+> If you placed the binary in your project directory instead of `$PATH`, use a relative path:
+>
+> ```go
+> // Windows
+> //go:generate .\go-gen-l10n.exe -dir ./l10n -pkg l10n -lang en
+>
+> // macOS / Linux
+> //go:generate ./go-gen-l10n -dir ./l10n -pkg l10n -lang en
+> ```
+>
+> Then run `go generate ./...` to invoke the generator automatically.
 
 ### Command Reference
 

@@ -1,6 +1,8 @@
 *.syso
 go-gen-l10n
 go-gen-l10n.exe
+ico/icon-hd.png
+/bin
 # l10n/app_localizations*.go
 
 

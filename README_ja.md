@@ -1,4 +1,4 @@
-![go-gen-l10n](./ico/icon.ico)
+![go-gen-l10n](ico/icon.png)
 
 # go-gen-l10n
 
@@ -111,6 +111,24 @@ func main() {
 `GetLocalizations()` は指定された言語コードに対応する翻訳インスタンスを返します。サポートされていない言語が指定された場合は、デフォルト言語（最初に読み込まれた ARB ファイルの言語）にフォールバックします。
 
 > **ヒント：** `//go:generate` を使用して、ビルド前に自動的にジェネレーターを実行できます。
+>
+> プロジェクト内の任意の `.go` ファイル（例：`main.go`）の先頭に以下を追加します：
+>
+> ```go
+> //go:generate go-gen-l10n -dir ./l10n -pkg l10n -lang ja
+> ```
+>
+> 実行可能ファイルを `$PATH` ではなくプロジェクトディレクトリに配置した場合は、相対パスを使用します：
+>
+> ```go
+> // Windows
+> //go:generate .\go-gen-l10n.exe -dir ./l10n -pkg l10n -lang ja
+>
+> // macOS / Linux
+> //go:generate ./go-gen-l10n -dir ./l10n -pkg l10n -lang ja
+> ```
+>
+> その後、`go generate ./...` を実行すると自動的にジェネレーターが呼び出されます。
 
 ### コマンドリファレンス
 

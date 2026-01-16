@@ -1,0 +1,3 @@
+[submodule "go-build-all"]
+	path = go-build-all
+	url = https://github.com/MasaeProject/go-build-all.git

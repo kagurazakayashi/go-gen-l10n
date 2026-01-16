@@ -1,0 +1,33 @@
+{
+  "RT_VERSION": {
+    "#1": {
+      "0000": {
+        "fixed": {
+          "file_version": "1.0.0.0",
+          "product_version": "1.0.0.0"
+        },
+        "info": {
+          "0804": {
+            "Comments": "ARB-driven Go localization code generator",
+            "CompanyName": "Kagurazaka Yashi",
+            "FileDescription": "ARB-driven Go localization code generator",
+            "FileVersion": "1.0.0.0",
+            "InternalName": "moe.yashi.gogenl10n",
+            "LegalCopyright": "2026, Kagurazaka Yashi.",
+            "LegalTrademarks": "Kagurazaka Yashi",
+            "OriginalFilename": "main.exe",
+            "ProductName": "go-gen-l10n",
+            "ProductVersion": "1.0.0.0",
+            "PrivateBuild": "",
+            "SpecialBuild": ""
+          }
+        }
+      }
+    }
+  },
+  "RT_GROUP_ICON": {
+    "APP": {
+      "0000": "../ico/icon.ico"
+    }
+  }
+}

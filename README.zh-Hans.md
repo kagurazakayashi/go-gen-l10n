@@ -1,4 +1,4 @@
-![go-gen-l10n](./ico/icon.ico)
+![go-gen-l10n](ico/icon.png)
 
 # go-gen-l10n
 
@@ -111,6 +111,24 @@ func main() {
 `GetLocalizations()` 会根据传入的语言代码返回对应的翻译实例。如果传入未支持的语言代码，会返回默认语言（即第一个加载的 ARB 文件对应的语言）的翻译。
 
 > **提示：** 你可以通过 `//go:generate` 指令在项目构建前自动运行代码生成器。
+>
+> 在项目的任意 `.go` 文件（如 `main.go`）顶部添加：
+>
+> ```go
+> //go:generate go-gen-l10n -dir ./l10n -pkg l10n -lang zh
+> ```
+>
+> 如果你将可执行文件放在了项目目录而非 `$PATH` 中，请使用相对路径：
+>
+> ```go
+> // Windows
+> //go:generate .\go-gen-l10n.exe -dir ./l10n -pkg l10n -lang zh
+>
+> // macOS / Linux
+> //go:generate ./go-gen-l10n -dir ./l10n -pkg l10n -lang zh
+> ```
+>
+> 之后运行 `go generate ./...` 即可自动调用代码生成器。
 
 ### 常用命令速查
 
